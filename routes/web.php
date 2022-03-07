@@ -6,6 +6,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\Admin\SettingsController ;
 use App\Http\Controllers\Admin\ArticleController ;
 use App\Http\Controllers\Admin\CvController ;
+use App\Http\Controllers\Admin\MessageController ;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -26,4 +27,5 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function () 
     Route::post('settings/save-contact'  , [SettingsController::class , 'saveContact'])->name('settings.save-contact');
     Route::resource('articles', ArticleController::class);
     Route::resource('cvs' , CvController::class);
+    Route::resource('messages' , MessageController::class);
 });
